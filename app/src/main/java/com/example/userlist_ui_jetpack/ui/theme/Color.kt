@@ -1,4 +1,4 @@
-package com.example.meditation_ui_jetpack.ui.theme
+package com.example.userlist_ui_jetpack.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

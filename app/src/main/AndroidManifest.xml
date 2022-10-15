@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.meditation_ui_jetpack">
+    package="com.example.userlist_ui_jetpack">
 
     <application
         android:allowBackup="true"
@@ -8,12 +8,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Meditation_ui_jetpack">
+        android:theme="@style/Theme.UserList_ui_jetpack">
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Meditation_ui_jetpack">
+            android:theme="@style/Theme.UserList_ui_jetpack">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

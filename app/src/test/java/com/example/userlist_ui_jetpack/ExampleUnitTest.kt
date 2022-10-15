@@ -1,4 +1,4 @@
-package com.example.meditation_ui_jetpack
+package com.example.userlist_ui_jetpack
 
 import org.junit.Test
 

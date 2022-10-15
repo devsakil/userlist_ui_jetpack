@@ -1,4 +1,4 @@
-package com.example.meditation_ui_jetpack
+package com.example.userlist_ui_jetpack
 
 import android.os.Bundle
 import android.widget.Toast
@@ -15,8 +15,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
@@ -26,14 +24,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.meditation_ui_jetpack.ui.theme.Meditation_ui_jetpackTheme
-import kotlin.math.round
+import com.example.userlist_ui_jetpack.ui.theme.UserList_ui_jetpackTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Meditation_ui_jetpackTheme {
+            UserList_ui_jetpackTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
                     HomePage()
@@ -155,7 +152,7 @@ fun HomePage(){
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    Meditation_ui_jetpackTheme {
+    UserList_ui_jetpackTheme {
         Surface(modifier = Modifier.fillMaxSize()){
             HomePage()
         }

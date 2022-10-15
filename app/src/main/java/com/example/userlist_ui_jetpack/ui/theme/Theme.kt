@@ -1,4 +1,4 @@
-package com.example.meditation_ui_jetpack.ui.theme
+package com.example.userlist_ui_jetpack.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
@@ -28,7 +28,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun Meditation_ui_jetpackTheme(
+fun UserList_ui_jetpackTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {

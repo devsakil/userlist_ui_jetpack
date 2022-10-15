@@ -7,7 +7,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.meditation_ui_jetpack"
+        applicationId "com.example.userlist_ui_jetpack"
         minSdk 21
         targetSdk 33
         versionCode 1
