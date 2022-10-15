@@ -4,27 +4,30 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.*
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.meditation_ui_jetpack.ui.theme.Meditation_ui_jetpackTheme
+import kotlin.math.round
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,30 +36,96 @@ class MainActivity : ComponentActivity() {
             Meditation_ui_jetpackTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                    HomePage()
                 }
             }
         }
     }
 }
 
+
+data class User(
+    val id: Int,
+    val name: String,
+)
+
+val users = listOf(
+    User(2, "Mary"),
+    User(3, "Sakil"),
+    User(1, "John"),
+    User(4, "Saif"),
+    User(5, "Sufi"),
+    User(6, "Ryhan"),
+    User(7, "Shimul"),
+    User(8, "Naim"),
+    User(9, "Rocky"),
+
+)
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun UserList(){
+//    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+//        for(i in 1..10){
+//            UserCard()
+//        }
+//
+//    }
+    LazyColumn(){
+        items(users){
+         user->
+            UserCard(name = user.name)
+        }
+    }
 }
 
-
 @Composable
-fun UserCard(){
-    Row() {
+fun UserCard(name: String){
+    Card(
+        shape = RoundedCornerShape(8.dp),
+        elevation = 4.dp,
+        modifier = Modifier
+            .padding(12.dp)
+            .fillMaxWidth()
+            .wrapContentHeight()
+
+    ) {
+
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .wrapContentHeight()
+            .padding(12.dp)
+    ) {
 
         Image(
             painter = painterResource(id = R.drawable.sakil),
             contentDescription = null,
             modifier = Modifier
-                .size(128.dp)
+                .size(90.dp)
                 .clip(CircleShape)
         )
+
+        Column(
+            horizontalAlignment = Alignment.Start,
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = Modifier
+            .absolutePadding(left = 15.dp)
+
+        ) {
+            Text(text = name, fontWeight = FontWeight.Bold, fontSize = 17.sp)
+            Text(text = stringResource(id = R.string.dummy_text))
+            Button(onClick = {
+                //
+            },
+            modifier = Modifier
+                .background(color = Color.Cyan)
+                ) {
+                
+                Text(text = "View Profile")
+                
+            }
+        }
+    }
     }
 }
 
@@ -78,9 +147,8 @@ fun Title(name: String) {
 @Composable
 fun HomePage(){
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-
-        UserCard()
-        Title("Sakil")
+        UserList()
+//        Title("Sakil")
     }
 }
 

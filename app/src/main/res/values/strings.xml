@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">meditation_ui_jetpack</string>
+    <string name="dummy_text">In publishing and graphic design, Lorem ipsum is a placeholder text. </string>
 </resources>
