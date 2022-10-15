@@ -12,6 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 
 data class User(
     val id: Int,
@@ -19,20 +20,20 @@ data class User(
 )
 
 @Composable
-fun MainContent() {
-    val user = User(1, "Sakil Hossain ")
+fun MainContent(navController: NavHostController?=null) {
+    val user = User(1, "1. Sakil Hossain ")
     val users =  remember{ mutableStateListOf(user) }
 
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-        UserList(users = users)
+        UserList(users = users, navController)
         Button(
             modifier = Modifier
                 .padding(24.dp)
                 .align(Alignment.BottomCenter),
             onClick = {
-                users.add(User(1, "Sakil Hossain"))
+                users.add(User(users.lastIndex+1, "${users.lastIndex+1}. Sakil Hossain"))
         }) {
             Text(text = "Add User")
 
@@ -41,7 +42,7 @@ fun MainContent() {
 }
 
 @Composable
-fun UserList(users:List<User>){
+fun UserList(users:List<User>, navController:NavHostController?=null){
 //    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
 //        for(i in 1..10){
 //            UserCard()
@@ -50,7 +51,7 @@ fun UserList(users:List<User>){
     LazyColumn(){
         items(users){
                 user->
-            UserCard(name = user.name)
+            UserCard(name = user.name, navController)
         }
     }
 }

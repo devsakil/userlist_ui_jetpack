@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
 @Composable
 fun Title(name: String) {
@@ -28,11 +29,11 @@ fun Title(name: String) {
 }
 
 @Composable
-fun HomePage(){
+fun HomePage(navController: NavHostController?=null){
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxSize(),
     ) {
-        MainContent()
+        MainContent(navController)
     }
 }

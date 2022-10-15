@@ -2,6 +2,7 @@ package com.example.userlist_ui_jetpack
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -18,9 +19,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
 @Composable
-fun UserCard(name: String){
+fun UserCard(name: String, navController: NavHostController?=null){
     Card(
         shape = RoundedCornerShape(8.dp),
         elevation = 4.dp,
@@ -57,7 +59,7 @@ fun UserCard(name: String){
                 Text(text = name, fontWeight = FontWeight.Bold, fontSize = 17.sp)
                 Text(text = stringResource(id = R.string.dummy_text))
                 Button(onClick = {
-                    //
+                    navController?.navigate("profile")
                 },
                     modifier = Modifier
                         .background(color = Color.Cyan)

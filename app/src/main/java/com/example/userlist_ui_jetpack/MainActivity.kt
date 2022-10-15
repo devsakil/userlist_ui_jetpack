@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
             UserList_ui_jetpackTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                    HomePage()
+                    NavContent()
                 }
             }
         }
@@ -44,7 +44,7 @@ class MainActivity : ComponentActivity() {
 fun DefaultPreview() {
     UserList_ui_jetpackTheme {
         Surface(modifier = Modifier.fillMaxSize()){
-            HomePage()
+            NavContent()
         }
     }
 }
